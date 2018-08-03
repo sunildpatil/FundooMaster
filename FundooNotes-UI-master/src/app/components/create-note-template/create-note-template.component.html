@@ -1,0 +1,46 @@
+<mat-card class="create-note-card" *ngIf="!showCard" (click)="toggleShowCard()">
+  Take a note.
+</mat-card>
+<mat-card class="create-note-card" *ngIf="showCard">
+  <form #regForm="ngForm" (ngSubmit)="toggleShowCard(regForm)">
+    <mat-card-title>
+      <input class="create-note-ip" type="text" placeholder="Title" name="title" ngModel [(ngModel)]="title">
+    </mat-card-title>
+    <mat-card-subtitle>
+      <input class="create-note-ip" type="text" placeholder="Take a note." name="description" ngModel [(ngModel)]="description">
+    </mat-card-subtitle>
+    <mat-card-footer style="cursor:pointer;">
+      <div>
+        <mat-icon id="create-mat-icon" matTooltip="Remind me">touch_app</mat-icon>
+        <mat-icon id="create-mat-icon" matTooltip="Collaborator">person_add</mat-icon>
+        <mat-icon id="create-mat-icon" matTooltip="Color" [matMenuTriggerFor]="color">color_lens</mat-icon>
+        <mat-icon id="create-mat-icon" matTooltip="Archive">archive</mat-icon>
+        <mat-icon id="create-mat-icon" matTooltip="Add image">photo</mat-icon>
+        <mat-icon id="create-mat-icon" matTooltip="More">more_vert</mat-icon>
+        <mat-icon id="create-mat-icon" matTooltip="Undo">undo</mat-icon>
+        <mat-icon id="create-mat-icon" matTooltip="Redo">redo</mat-icon>
+        <button id="create-close" mat-button type="submit">Close</button>
+      </div>
+      <mat-menu #color="matMenu">
+        <div id="color-div" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+          <button id="color-btn" mat-mini-fab matTooltip="White" style="background-color:#ffffff" (click)="changeColor('#ffffff', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Red" style="background-color:#ff8a80" (click)="changeColor('#ff8a80', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Orange" style="background-color:#ffd180" (click)="changeColor('#ffd180', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Yelow" style="background-color:#ffff8d" (click)="changeColor('#ffff8d', record.noteId)"></button>
+        </div>
+        <div id="color-div" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+          <button id="color-btn" mat-mini-fab matTooltip="Green" style="background-color:#ccff90" (click)="changeColor('#ccff90', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Teal" style="background-color:#a7ffeb" (click)="changeColor('#a7ffeb', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Blue" style="background-color:#80d8ff" (click)="changeColor('#80d8ff', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Dark blue" style="background-color:#82b1ff" (click)="changeColor('#82b1ff', record.noteId)"></button>
+        </div>
+        <div id="color-div" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+          <button id="color-btn" mat-mini-fab matTooltip="Purple" style="background-color:#b388ff" (click)="changeColor('#b388ff', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Pink" style="background-color:#f8bbd0" (click)="changeColor('#f8bbd0', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Brown" style="background-color:#d7ccc8" (click)="changeColor('#d7ccc8', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Grey" style="background-color:#cfd8dc" (click)="changeColor('#cfd8dc', record.noteId)"></button>
+        </div>
+      </mat-menu>
+    </mat-card-footer>
+  </form>
+</mat-card>

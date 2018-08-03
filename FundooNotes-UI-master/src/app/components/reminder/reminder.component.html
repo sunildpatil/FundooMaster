@@ -1,0 +1,9 @@
+<div fxLayoutWrap fxLayoutAlign="center">
+  <app-create-note-template (refresher)="refresh()"></app-create-note-template>
+</div>
+
+<div style="margin:65px;" fxLayout="row" fxLayoutWrap fxLayoutGap="16px" fxLayout="center center">
+  <div *ngFor="let record of records | myfilter : 'reminder'">
+    <app-template [archiveIcon]="archiveIcon" (refresher)="refresh()" [record]="record"></app-template>
+  </div>
+</div>

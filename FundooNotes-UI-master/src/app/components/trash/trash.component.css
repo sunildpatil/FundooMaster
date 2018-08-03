@@ -1,0 +1,25 @@
+.card{
+    min-width: 200px;
+    margin: 10px;
+    overflow-wrap: break-word;
+}
+
+.description{
+    font-size: 20px;
+}
+
+.title{
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.full-width{
+    width: 550px;
+    height: 5vh;
+    margin-top: 30px;
+}
+
+#footer-card-div{
+    margin-top: 10%;
+    margin-left: 5px;
+}

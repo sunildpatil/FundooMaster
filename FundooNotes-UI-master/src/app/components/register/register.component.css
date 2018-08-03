@@ -1,0 +1,49 @@
+.example-card {
+  max-width: 600px;
+  margin-left: 27%;
+  background-color: #f2f2f2
+}
+
+.logo {
+  margin-left: 30%;
+  margin-bottom: 10px
+}
+
+input{
+  width: 100%
+}
+
+.signIn{
+  margin-left: 55%
+}
+
+.btmMargin{
+  height: 30px;
+  margin-left: 5px 
+}
+  
+.example-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.test{
+  flex-direction: row;
+}
+
+.show-hide-btn{
+  width: 100px;
+  height: 10%;
+}
+  
+.example-container > * {
+  width: 100%;
+}  
+
+mat-form-field {
+  padding-top: 5px
+}
+
+.error-msg{
+  color: red;
+}

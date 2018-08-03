@@ -1,0 +1,53 @@
+.sidenav-container {
+  max-width: 100%;
+  height: 90.5vh;
+  background-color: #e8e8e8;
+}
+
+.toolbar-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-toolbar {
+  background-color: #fb0;
+}
+
+.logout{
+  margin-left: 975px;
+}
+
+.sidenav {
+  background-color: #e8e8e8;
+  max-width: 280px;
+  border: 1px solid black;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+  
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.home-body{
+  margin: 0;
+}
+
+.side-btn{
+  min-width: 100%;
+  min-height: 8vh;
+}
+
+.tab-icon{
+  padding: 15px;
+}
+
+.tabs{
+  width: 100%;
+  font-size: 14px;
+  padding-right: 150px;
+}

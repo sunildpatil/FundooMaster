@@ -1,0 +1,29 @@
+<mat-card class="example-card mat-elevation-z24">
+  <mat-card-header class="logo">
+    <img src="assets/image/keep.png">
+  </mat-card-header>
+  <h1>Fundoo Login</h1>
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="E-Mail" type="email"
+          name="email" ngModel required>
+        </mat-form-field>
+        <div class="error-text">{{emailError}}</div>
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password"
+          name="password" ngModel required>
+        </mat-form-field>
+        <div class="error-text">{{passwordError}}</div>
+      </div>
+      <p>
+        <a routerLink="/forgotpassword">Forgot Password?</a>
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="btmMargin">
+      <button mat-raised-button>SignIn</button>
+      <a routerLink="/register" class="signUp">SignUp</a>
+    </mat-card-actions>
+  </form>
+</mat-card>

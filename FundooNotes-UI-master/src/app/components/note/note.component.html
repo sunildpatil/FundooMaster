@@ -1,0 +1,18 @@
+<div fxLayoutWrap fxLayoutAlign="center">
+  <app-create-note-template (refresher)="refresh()"></app-create-note-template>
+</div>
+
+<div style="margin:40px;">
+  <h4>Pinned</h4>
+  <div fxLayout="row" fxLayoutWrap fxLayoutGap="16px" fxLayout="center center">
+    <div *ngFor="let record of records | myfilter : 'pin'">
+      <app-template [archiveIcon]="archiveIcon" (refresher)="refresh()" [record]="record"></app-template>
+    </div>
+  </div>
+  <h4>Others</h4>
+  <div fxLayout="row" fxLayoutWrap fxLayoutGap="16px" fxLayout="center center">
+    <div *ngFor="let record of records | myfilter : 'other'">
+      <app-template [archiveIcon]="archiveIcon" (refresher)="refresh()" [record]="record"></app-template>
+    </div>
+  </div>
+</div>

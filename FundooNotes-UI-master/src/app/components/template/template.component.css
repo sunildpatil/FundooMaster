@@ -1,0 +1,92 @@
+.card{
+    min-width: 200px;
+    max-width: 200px;    
+    margin: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.description{
+    font-size: 20px;
+}
+
+.title{
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.create-card{
+    min-width: 550px;
+    max-height: 10vh;
+}
+
+.full-width{
+    width: 550px;
+    height: 5vh;
+    margin-top: 30px;
+}
+
+.bottom-tab{
+    padding-bottom: 0px;
+}
+
+.create-note-card{
+    min-height: 10px;
+    min-width: 550px;
+    margin: 30px;
+}
+
+#create-mat-icon {
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 21px;
+}
+
+#card-mat-icon {
+    padding-right: 8px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+#create-close{
+    margin-left: 100px;
+    padding: 5px;
+}
+
+#notes-card-div{
+    margin-top: 14%;
+    margin-left: 20px;
+}
+
+.create-note-ip{
+    width: 100%;
+    min-height: 20px;
+    outline-width: 0;
+    outline: none;
+    border: none; 
+    border-width: 0; 
+    box-shadow: none;
+}
+
+.more-menu{
+    font-size: 8px;
+    max-width: 250px;
+    padding: 5px;
+}
+
+#color-btn{
+    max-width: 25px;
+    max-height: 25px;
+}
+
+#color-div{
+    margin: 4px;
+}
+
+svg{
+    max-width: 20px;
+    max-height: 20px;
+    margin-top: 0px;
+    padding-top: 0px;
+    float: right;
+}

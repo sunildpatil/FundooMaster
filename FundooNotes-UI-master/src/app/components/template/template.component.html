@@ -1,0 +1,130 @@
+<mat-card class="card" [style.backgroundColor]="record.color">
+  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 20 20"><path d="M16 5h.99L17 3H7v2h1v7l-2 2v2h5v6l1 1 1-1v-6h5v-2l-2-2V5z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg>
+  <mat-card-title class="title" (click)="openDialog(record)">
+    {{record.title}}
+  </mat-card-title>
+  <mat-card-subtitle class="description" (click)="openDialog(record)">
+    {{record.description}}
+  </mat-card-subtitle>
+  <mat-card-actions *ngIf="record.reminderDate">
+    <!-- <mat-icon style="font-size: 14px; margin: 0%; padding: 0%">access_time</mat-icon> -->
+    <mat-chip-list>
+      <mat-chip style="opacity: 0.5;" [selectable]="selectable" [removable]="removable" (removed)="remove(fruit)">
+        <span [matMenuTriggerFor]="customdate">
+          {{record.reminderDate}} {{record.reminderTime}}
+        </span>
+        <mat-icon matChipRemove (click)="deleteReminder(record.noteId)">cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-actions>
+  <mat-card-footer class="bottom-tab">
+    <mat-card-footer style="cursor: pointer">
+      <div id="notes-card-div">
+        <mat-icon id="card-mat-icon" matTooltip="Remind me" [matMenuTriggerFor]="reminder">touch_app</mat-icon>
+        <mat-icon id="card-mat-icon" matTooltip="Collaborator">person_add</mat-icon>
+        <mat-icon id="card-mat-icon" matTooltip="Color" [matMenuTriggerFor]="color">color_lens</mat-icon>
+        <mat-icon id="card-mat-icon" matTooltip="archive" (click)="archiveNote(record.noteId)">{{archiveIcon}}</mat-icon>
+        <mat-icon id="card-mat-icon" matTooltip="Add image">photo</mat-icon>
+        <mat-icon id="card-mat-icon" matTooltip="More" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+      </div>
+      <mat-menu #menu="matMenu">
+        <div>
+          <button style="font-size: 14px; max-height: 8vh" mat-menu-item (click)="delete(record.noteId)">
+            <mat-icon style="font-size: 18px; margin: 1px;">delete</mat-icon>
+            <span>Delete note</span>
+          </button>
+          <button style="font-size: 14px; max-height: 8vh" mat-menu-item>
+            <mat-icon style="font-size: 18px; margin: 1px;">label</mat-icon>
+            <span>Add label</span>
+          </button>
+        </div>
+      </mat-menu>
+      <mat-menu #color="matMenu">
+        <div id="color-div" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+          <button id="color-btn" mat-mini-fab matTooltip="White" style="background-color:#ffffff" (click)="changeColor('#ffffff', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Red" style="background-color:#ff8a80" (click)="changeColor('#ff8a80', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Orange" style="background-color:#ffd180" (click)="changeColor('#ffd180', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Yelow" style="background-color:#ffff8d" (click)="changeColor('#ffff8d', record.noteId)"></button>
+        </div>
+        <div id="color-div" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+          <button id="color-btn" mat-mini-fab matTooltip="Green" style="background-color:#ccff90" (click)="changeColor('#ccff90', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Teal" style="background-color:#a7ffeb" (click)="changeColor('#a7ffeb', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Blue" style="background-color:#80d8ff" (click)="changeColor('#80d8ff', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Dark blue" style="background-color:#82b1ff" (click)="changeColor('#82b1ff', record.noteId)"></button>
+        </div>
+        <div id="color-div" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+          <button id="color-btn" mat-mini-fab matTooltip="Purple" style="background-color:#b388ff" (click)="changeColor('#b388ff', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Pink" style="background-color:#f8bbd0" (click)="changeColor('#f8bbd0', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Brown" style="background-color:#d7ccc8" (click)="changeColor('#d7ccc8', record.noteId)"></button>
+          <button id="color-btn" mat-mini-fab matTooltip="Grey" style="background-color:#cfd8dc" (click)="changeColor('#cfd8dc', record.noteId)"></button>
+        </div>
+      </mat-menu>
+      <mat-menu #reminder="matMenu">
+        <div style="margin: 20px;">
+          Reminder:
+        </div>
+        <button style="font-size: 13px; max-height: 8vh" mat-menu-item (click)="reminderAdd(record.noteId, 'today')">
+          <span>Later today</span>
+          <span style="margin-left: 100px;">08:00 PM</span>
+        </button>
+        <button style="font-size: 13px; max-height: 8vh" mat-menu-item (click)="reminderAdd(record.noteId, 'tomorrow')">
+          <span>Tomorrow</span>
+          <span style="margin-left: 110px;">08:00 AM</span>
+        </button>
+        <button style="font-size: 13px; max-height: 8vh" mat-menu-item (click)="reminderAdd(record.noteId, 'next')">
+          <span>Next week</span>
+          <span style="margin-left: 75px;">Mon, 08:00 AM</span>
+        </button>
+        <button style="font-size: 13px; max-height: 8vh" mat-menu-item [matMenuTriggerFor]="customdate">
+          <mat-icon style="font-size: 18px; margin: 1px;">access_time</mat-icon>
+          <span>Pick date & time</span>
+        </button>
+      </mat-menu>
+      <mat-menu #customdate="matMenu">
+        <div style="margin-left: 50px;">
+          <mat-form-field (click)="$event.stopPropagation();">
+            <input matInput (dateChange)="addEvent('change', $event)" [matDatepicker]="picker" placeholder="Choose a date" name="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field (click)="$event.stopPropagation();">
+            <mat-select placeholder="Time" name="time" [(ngModel)]="reminderTime">
+              <mat-option value="8:00 AM">
+                Morning 8:00 AM
+              </mat-option>
+              <mat-option value="1:00 PM">
+                Afternoon 1:00 PM
+              </mat-option>
+              <mat-option value="6:00 PM">
+                Evening 6:00 PM
+              </mat-option>
+              <mat-option value="8:00 PM">
+                Night 8:00 PM
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field (click)="$event.stopPropagation();">
+            <mat-select placeholder="Repeat" name="repeat" [(ngModel)]="reminderFrequency">
+              <mat-option value="Does not repeat">
+                Does not repeat
+              </mat-option>
+              <mat-option value="Daily">
+                Daily
+              </mat-option>
+              <mat-option value="Weekly">
+                Weekly
+              </mat-option>
+              <mat-option value="Monthly">
+                Monthly
+              </mat-option>
+              <mat-option value="Yearly">
+                Yearly
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <button style="margin-left: 65%" mat-button (click)="addReminder(record.noteId)">Save</button>
+      </mat-menu>
+    </mat-card-footer>
+  </mat-card-footer>
+</mat-card>

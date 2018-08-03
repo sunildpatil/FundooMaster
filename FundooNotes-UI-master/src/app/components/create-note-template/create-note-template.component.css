@@ -1,0 +1,41 @@
+.create-note-card{
+    min-height: 10px;
+    min-width: 550px;
+    margin: 30px;
+}
+
+#create-mat-icon {
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 21px;
+}
+
+#card-mat-icon {
+    padding-right: 8px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+#create-close{
+    margin-left: 100px;
+    padding: 5px;
+}
+
+#color-btn{
+    max-width: 25px;
+    max-height: 25px;
+}
+
+#color-div{
+    margin: 4px;
+}
+
+.create-note-ip{
+    width: 100%;
+    min-height: 20px;
+    outline-width: 0;
+    outline: none;
+    border: none; 
+    border-width: 0; 
+    box-shadow: none;
+}

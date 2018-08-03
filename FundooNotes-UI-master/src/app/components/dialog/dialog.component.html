@@ -1,0 +1,19 @@
+<input #title class="create-note-ip" mat-dialog-title type="text" value="{{data.title}}">
+<input #description class="create-note-ip" mat-dialog-title type="text" value="{{data.description}}">
+<mat-dialog-content>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div>
+    <mat-icon matTooltip="Remind me">touch_app</mat-icon>
+    <mat-icon matTooltip="Collaborator">person_add</mat-icon>
+    <mat-icon matTooltip="Color">color_lens</mat-icon>
+    <mat-icon matTooltip="Archive">archive</mat-icon>
+    <mat-icon matTooltip="Add image">photo</mat-icon>
+    <mat-icon matTooltip="More">more_vert</mat-icon>
+    <mat-icon matTooltip="Undo">undo</mat-icon>
+    <mat-icon matTooltip="Redo">redo</mat-icon>
+    <button id="create-close" mat-button (click)="close(title.value, description.value)">Close</button>
+  </div>
+</mat-dialog-actions>

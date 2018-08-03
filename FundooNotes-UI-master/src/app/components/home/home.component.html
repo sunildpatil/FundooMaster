@@ -1,0 +1,42 @@
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <div class="toolbar-content">
+        <button type="button" mat-button (click)="sidenav.toggle()">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <h2>Fundoo Notes</h2>
+      </div>
+      <div>
+      <button class="logout" type="button" mat-button (click)="logout()">
+        <i class="material-icons">power_settings_new</i>
+      </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxLayoutWrap class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened class="sidenav">
+      <button mat-button type="button" [routerLink]="['/home']" fxLayoutGap="36px" class="tabs">
+        <img class="tab-icon" src="/assets/image/note.svg" alt="">
+        <span>Notes</span>
+      </button>
+      <button mat-button type="button" [routerLink]="['/home/reminder']" fxLayoutGap="36px" class="tabs">
+        <img class="tab-icon" src="/assets/image/reminder.svg" alt="">
+        <span>Reminders</span>
+      </button>
+      <div style="padding-top: 5px; padding-bottom: 5px;">      
+        <mat-divider></mat-divider>
+      </div>
+      <button mat-button type="button" [routerLink]="['/home/archive']" fxLayoutGap="36px" class="tabs">
+        <mat-icon class="tab-icon">archive</mat-icon>
+        <span>Archive</span>
+      </button>
+      <button mat-button type="button" [routerLink]="['/home/trash']" fxLayoutGap="36px" class="tabs">
+          <mat-icon class="tab-icon">delete</mat-icon>
+          <span>Trash</span>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content fxLayoutWrap>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
